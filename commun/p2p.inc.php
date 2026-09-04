@@ -26,8 +26,9 @@
                     </nav>
                 </section>
             </div>
-            <p class="da">&copy; Tous droits réservés, teeTIM 2023-<?php echo date('Y');?></p>
+            <p class="da">&copy; Tous droits réservés, teeTIM 2023-<?php echo date('Y'); ?></p>
         </footer>
-    </div>
-</body>
-</html>
+        </div>
+        </body>
+
+        </html>
