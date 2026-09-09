@@ -1,11 +1,29 @@
 <?php
+// afficher les paramètres d'URL
+// print_r($_GET);
+// choix de langue (par défaut fr)
+$langue = "fr";
+// si l'utilisateur avait déjà choisi une langue
+
+// changer la langue au clic du bouton
+if (isset($_GET["lan"])) {
+    $langue = $_GET["lan"];
+}
+
 //Lire le fichier JSON contenant les textes
-$textesJSON = file_get_contents("i18n/textes-fr.json");
-//test
-echo $textesJSON;
+$textesJSON = file_get_contents("i18n/textes-$langue.json");
+
 //Convertir la chaine JSON en structure PHP
+$textes = json_decode($textesJSON);
 
+//Créer quelques raccourcis pour les sections importantes de texte
 
+//raccourci pour tous les textes du contenu spécifique à chaque page
+$_ = $textes->$page;
+// raccourci pour les textes de l'entete
+$_ent = $textes->entete;
+//raccourci pied de page
+$_pp = $textes->pp;
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +46,8 @@ echo $textesJSON;
     <div class="conteneur">
         <header>
             <nav class="barre-haut">
-                <a class="actif" href="#">fr</a>
-                <a href="#">en</a>
-                <a href="#">es</a>
+                <a class="" href="index.php?lang=fr">fr</a>
+                <a class="" href="index.php?lang=en">en</a>
             </nav>
             <nav class="barre-logo">
                 <label for="cc-btn-responsive" class="material-icons burger">menu</label>
@@ -41,11 +58,11 @@ echo $textesJSON;
             <input type="checkbox" id="cc-btn-responsive">
             <nav class="principale">
                 <label for="cc-btn-responsive" class="menu-controle material-icons">close</label>
-                <a href="teeshirts.php"></a>
-                <a href="casquettes.php"></a>
-                <a href="hoodies.php"></a>
+                <a href="teeshirts.php"><?= $_ent->navigationPrincipale->navTeeshirts; ?></a>
+                <a href="casquettes.php"><?= $_ent->navigationPrincipale->navCasquettes; ?></a>
+                <a href="hoodies.php"><?= $_ent->navigationPrincipale->navHoodies; ?></a>
                 <span class="separateur"></span>
-                <a href="aide.php"></a>
-                <a href="apropos.php"></a>
+                <a href="aide.php"><?= $_ent->navigationPrincipale->navAide; ?></a>
+                <a href="apropos.php"><?= $_ent->navigationPrincipale->navAPropos; ?></a>
             </nav>
         </header>
