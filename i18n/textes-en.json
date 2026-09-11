@@ -2,7 +2,7 @@
     "entete": {
         "meta": {
             "title": "teeTIM // natural fiber ... artifical conception",
-            "desc": "Home page of the apparle designer made 100% in Québec, made by TIM students with help from AI and brought to life with 100% biological and natural fibers"
+            "desc": "Home page of the apparel designer made 100% in Québec, made by TIM students with help from AI and brought to life with 100% biological and natural fibers"
         },
         "logoAlt": "Home",
         "recherchePlaceholder": "Search",
@@ -14,7 +14,26 @@
             "navAPropos": "About us"
         }
     },
-    "pp": {},
+    "pp": {
+        "achats": {
+            "titre": "Your purchases",
+            "navFaq": "Frequently asked questions",
+            "navLivraison": "Parcel shipping",
+            "navConditions": "Sales conditions",
+            "navConfidentialite": "Privacy policy"
+        },
+        "aPropos": {
+            "titre": "About teeTIM",
+            "navCompagnie": "The business",
+            "navEquipe": "The team",
+            "navEmploi": "Careers"
+        },
+        "coordonnees": {
+            "titre": "Join us",
+            "navTelephone": "Toll-free",
+            "navCourriel": "Email"
+        }
+    },
     "accueil": {
         "amorceH1": "Teeshirts, hoodies, and caps, made in Québec 💯",
         "amorceH2": "Made at TIM with ❤️",

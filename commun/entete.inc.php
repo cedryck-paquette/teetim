@@ -4,14 +4,19 @@
 // choix de langue (par défaut fr)
 $langue = "fr";
 // si l'utilisateur avait déjà choisi une langue
-
+if (isset($_COOKIE['teetimLangue'])) {
+    $langue = $_COOKIE['teetimLangue'];
+}
 // changer la langue au clic du bouton
-if (isset($_GET["lan"])) {
-    $langue = $_GET["lan"];
+if (isset($_GET['lan'])) {
+    $langue = $_GET['lan'];
+
+    // Mémoriser le choix dans un témoin HTTP
+    setcookie('teetimLangue', $langue, time() + 365 * 24 * 60 * 60);
 }
 
 //Lire le fichier JSON contenant les textes
-$textesJSON = file_get_contents("i18n/textes-$langue.json");
+$textesJSON = file_get_contents('i18n/textes-' . $langue . '.json');
 
 //Convertir la chaine JSON en structure PHP
 $textes = json_decode($textesJSON);
@@ -46,8 +51,16 @@ $_pp = $textes->pp;
     <div class="conteneur">
         <header>
             <nav class="barre-haut">
-                <a class="" href="index.php?lang=fr">fr</a>
-                <a class="" href="index.php?lang=en">en</a>
+                <a class="<?php if ($langue === 'fr') {
+                                echo 'actif';
+                            } else {
+                                echo '';
+                            } ?>" href="?lan=fr">fr</a>
+                <a class="<?php if ($langue === 'en') {
+                                echo 'actif';
+                            } else {
+                                echo '';
+                            } ?>" href="?lan=en">en</a>
             </nav>
             <nav class="barre-logo">
                 <label for="cc-btn-responsive" class="material-icons burger">menu</label>

@@ -4,8 +4,7 @@ $page = "accueil";
 //inclure le fichier commun contenant le code du haut de la page
 include_once('commun/entete.inc.php');
 
-//variables pour enlever la fausse erreur de $textes dans le php
-/** @var stdClass $textes */
+//variables pour enlever la fausse erreur
 /** @var stdClass $_ */
 ?>
 <main class="page-accueil">
